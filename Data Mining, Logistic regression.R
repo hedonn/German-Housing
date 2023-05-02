@@ -49,7 +49,7 @@ coef(model_1)
 #classes. The AUC for the initial model is 0.727, which indicates that the model
 #is performing reasonably well in predicting the response variable.
 
-________________________________________________________________________________
+#________________________________________________________________________________
 
 #Build logistic regression model with L2 regularization using glm package
 x <- model.matrix(response ~ ., german_train)[,-1]
@@ -64,7 +64,7 @@ model_2 <- glm(response ~ ., data=german_train, family="binomial")
 #model is 0.732, which is slightly better than the initial model. 
 #The selected features include chk_acct, credit_his, duration, purpose,
 #property, housing, and present_resid.
-________________________________________________________________________________
+#________________________________________________________________________________
 
 #Test out-of-sample performance of final model
 pred_test <- predict(model_2, newdata=german_test, type="response")
@@ -84,7 +84,7 @@ pred_test_misclassification_rate
 #dataset is 0.333, which is much lower than the AUC for the training dataset. 
 #This suggests that the model may be overfitting the training data and may not 
 #generalize well to new data.
-________________________________________________________________________________
+#________________________________________________________________________________
 
 german_credit$age <- as.factor(german_credit$age)
 credit_glm1<- glm(age~. , family=binomial, data=german_credit)
@@ -96,7 +96,7 @@ cv_result  <- cv.glm(data=german_credit, glmfit=credit_glm1, cost=costfunc, K=5)
 #the cost function. The results show that the difference between the training 
 #and testing error is small (delta=0.007), indicating that the model 
 #is not overfitting the data.
-________________________________________________________________________________
+#________________________________________________________________________________
 
 #Overall, the findings suggest that the logistic regression model may not be
 #the best model for this dataset as its performance is not consistently 
